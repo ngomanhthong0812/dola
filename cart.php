@@ -82,6 +82,7 @@ function destroy(){
 }
 function update(){
     if (isset($_POST['productId']) && isset($_POST['quantityUpdate'])) {
+      if($_POST['quantityUpdate'] > 0){
         $productId = $_POST['productId'];
         $newQuantity = $_POST['quantityUpdate'];
 
@@ -95,5 +96,6 @@ function update(){
         }
 
         $_SESSION['cart'] = $cart;
+      }
     }
 }
