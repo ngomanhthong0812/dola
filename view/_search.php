@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tìm kiếm</title>
+    <title>
+        <?php echo $_SESSION['nameSearch'] ?> - Tìm kiếm
+    </title>
     <link rel="stylesheet" href="./public/css/buy.css">
     <link rel="shortcut icon" href="./public/image/logo/favicon.webp" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <!-- header design -->
-    <?php include_once './view/inc/header.php'?>
+    <?php include_once './view/inc/header.php' ?>
 
     <div class="bodywrap">
         <section class="bread-crumb">
@@ -31,39 +37,59 @@
             </div>
         </section>
         <section class="container_category">
+            <?php $index = 0 ?>
             <div class="menu_right" style="width: 100%;">
                 <div class="title">
-                    <h3 style="font-size: 25px;">Có # kết quả phù hợp</h3>
+                    <h3 style="font-size: 25px;">Có
+                        <span class="index"></span> kết quả phù hợp
+                    </h3>
                 </div>
                 <div class="product">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <a href="#">
-                                <img src="./public/image/products/1.jpg" alt=""> 
-                             </a>
-                             <div class="product-info">
-                                 <a href="#" class="product-name">Salad rau mùa sốt cam</a>
-                                 <div class="price-box">
-                                     <span class="price">68.000đ</span>
-                                     <!-- <span class="compare-price">70.000đ</span> -->
-                                 </div>
-                             </div>
-                             <div class="btn-card">
-                                 <a href="#" class="btn-more">Xem chi tiết</a>
-                             </div>
+                        <?php foreach ($productList as $product) { ?>
+                            <!-- hàm in_array Kiểm tra xem giá trị dc cung cấp ($product['name']) có tồn tại trong mảng đã cho không ($productSearch)-->
+                            <?php if (in_array($product['name'], $productSearch)) { ?>
+                                <div class="swiper-slide">
+                                    <a href="#">
+                                        <img src="./public/image/products/<?php echo $product['image'] ?>.jpg" alt="">
+                                    </a>
+                                    <div class="product-info">
+                                        <a href="#" class="product-name">
+                                            <?php echo $product['name'] ?>
+                                        </a>
+                                        <div class="price-box">
+                                            <span class="price">
+                                                <?php echo $product['price'] ?>.000đ
+                                            </span>
+                                            <span class="compare-price">
+                                                <?php echo $product['price'] + 50 ?>.000đ
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="btn-card">
+                                        <a href="detail.php?id=<?php echo $product['id']; ?>" class="btn-more"
+                                            data-product-id="1">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
+                        <div>
                         </div>
-                        
+
                     </div>
                 </div>
+            </div>
+            <div>
             </div>
         </section>
     </div>
 
-    <?php include_once './view/inc/footer.php'?>
+    <?php include_once './view/inc/footer.php' ?>
 
     <!-- button scroll to top design -->
     <button id="toTop"><i class="fa-solid fa-chevron-up"></i></button>
 
     <script src="./public/js/main.js"></script>
 </body>
+
 </html>

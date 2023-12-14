@@ -49,3 +49,12 @@ function decrement() {
 } catch (error) {
   
 }
+
+// hàm kiểm tra số lượng tìm kiếm được
+function indexSearch(){
+  var container = document.querySelectorAll(".product .swiper-wrapper .swiper-slide");
+  var title = document.querySelector(".menu_right .title .index")
+  title.innerHTML = container.length;
+}
+indexSearch();
+

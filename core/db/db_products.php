@@ -148,4 +148,26 @@ function get_search_products($search){
 
     return $result;
 }
+function search_product($nameProduct)
+{
+    global $pdo;
+    $sql = "SELECT * FROM PRODUCTS  WHERE NAME LIKE :name";
+    $stmt = $pdo->prepare($sql);
+    $nameProductSearch = '%' . $nameProduct . '%';
+    $stmt->bindParam(':name', $nameProductSearch);
+
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+    // Lấy danh sách kết quả
+    $result = $stmt->fetchAll();
+
+    // Lặp kết quả và xây dựng mảng tên sản phẩm
+    $names = array();
+    foreach ($result as $row) {
+        $names[] = $row['name'];
+    }
+
+    return $names;
+}
 ?>
