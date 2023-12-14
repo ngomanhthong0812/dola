@@ -199,7 +199,7 @@ function get_all_by_orders()
     SUM(products.price) as total, phone,
     SUM(order_items.quantity) as number
     FROM `orders`
-    JOIN order_items ON `orders`.`id` = order_items.order_id
+    JOIN order_items ON `orders`.`id` = order_items.orders_id
     JOIN products ON order_items.product_id = products.id
     GROUP BY code;";
 

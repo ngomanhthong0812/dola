@@ -4,7 +4,7 @@ include_once './core/db/boot.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['email']) && isset($_POST['name']) && isset($_POST['phone']) &&  isset($_POST['address'])) {
         $email = $_SESSION['email'];
-        $user = get_user_by_email($email);
+        $user = get_by_email_users($email);
         if ($user) {
             $id = $user['id'];
             $orders = array(

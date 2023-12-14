@@ -128,7 +128,7 @@ function get_all_total(){
 function delete_by_order_items($order_id){
     global $pdo;
 
-    $sql = "DELETE FROM ORDER_ITEMS WHERE ORDER_ID=:order_id";
+    $sql = "DELETE FROM ORDER_ITEMS WHERE ORDERS_ID=:orders_id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':order_id', $order_id);
 
@@ -140,7 +140,7 @@ function get_revenue(){
 
     $sql = "SELECT sum(price*quantity) as revenue
     FROM orders,order_items
-    WHERE orders.id = order_items.order_id AND
+    WHERE orders.id = order_items.orders_id AND
     status = 'delivered'
     ;";
     $stmt = $pdo->prepare($sql);
