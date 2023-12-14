@@ -1,4 +1,8 @@
 <?php
+include_once './core/db/boot.php';
+@session_start();
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['_method'])) {
         switch ($_POST['_method']) {
@@ -10,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 create();
                 break;
             case 'update':
-                // var_dump($_POST);
+               
                 update();
                 break;
         }
@@ -19,6 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('location: cart.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_SESSION['cart'])) {
+        $cart = $_SESSION['cart'];
+    } else {
+        $cart = array();
+    }
+    $productList = get_all_products();
     include_once './view/_cart.php';
 }
 function create(){
@@ -58,6 +68,32 @@ function create(){
     $_SESSION['cart'] = $cart;
 }
 function destroy(){
+    $cart = $_SESSION['cart'];
+    if(isset($_POST['productId'])){
+        for ($i = 0; $i < count($cart); $i++) {
+            if($cart[$i]['productId'] == $_POST['productId']){
+                unset($cart[$i]);
+            }
+        }
+        // Cập nhật lại chỉ số của mảng sau khi xoá
+        $cart = array_values($cart);
+    }
+    $_SESSION['cart'] = $cart;
 }
 function update(){
+    if (isset($_POST['productId']) && isset($_POST['quantityUpdate'])) {
+        $productId = $_POST['productId'];
+        $newQuantity = $_POST['quantityUpdate'];
+
+        $cart = $_SESSION['cart'];
+
+        for ($i = 0; $i < count($cart); $i++) {
+            if ($cart[$i]['productId'] == $productId) {
+                $cart[$i]['quantity'] = $newQuantity;
+                break;
+            }
+        }
+
+        $_SESSION['cart'] = $cart;
+    }
 }

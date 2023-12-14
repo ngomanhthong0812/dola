@@ -367,7 +367,9 @@ body {
   margin: 0px 0px 8px 0px;
   text-align: left;
 }
-
+.muahang{
+  display: flex;
+}
 .add.remove input {
   width: 40px;
   height: 40px;
@@ -378,6 +380,8 @@ body {
   padding: 0 2px;
   line-height: 22.5px;
   text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #decreaseBtn,
@@ -390,6 +394,10 @@ body {
   color: var(--text-color);
   background: var(--hover-color);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 .clearfix.form-group .btn-box {

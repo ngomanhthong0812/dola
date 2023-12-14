@@ -349,8 +349,22 @@ body {
 }
 
 .infoo .delete{
-    color: #d69c52;
-    text-align: start;
+    color: #ffffff;
+    padding: 5px;
+    border-radius:5px;
+    border: none;
+    display: flex;
+    align-items: start;
+    background-color: #d69c52;
+}
+.update{
+    color: #ffffff;
+    padding: 5px;
+    border-radius:5px;
+    border: none;
+    margin-left:5px;
+    background-color: #d69c52;
+    
 }
 .price_main{
     width: 16%;
@@ -370,6 +384,8 @@ body {
 }
 .quantity_item{
     display: flex;
+    margin-top: 35px;
+    padding-bottom: 5px;
 }
 .quantity_item input{
     width: 40px;
@@ -409,9 +425,9 @@ body {
     cursor: pointer;
 }
 .button :nth-child(1){
-    margin: 0 5px;
-    
+    margin: 0 5px;  
 }
+
 .thanhtoan{
     display: flex;
     justify-content: end;

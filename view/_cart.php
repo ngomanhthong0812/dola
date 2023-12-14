@@ -15,7 +15,7 @@
 
 <body>
     <!-- header design -->
-    <?php include_once './view/inc/header.php'?>
+    <?php include_once './view/inc/header.php' ?>
 
     <div class="bodywrap">
         <section class="bread-crumb">
@@ -42,59 +42,96 @@
                             <h1>Giỏ hàng của bạn</h1>
                         </div>
                         <div class="">
-                            <form action="">
-                                <div class="table_cart">
-                                    <div class="table_thead">
-                                        <div class="table_top">
-                                            <div class="info_product">Thông tin sản phẩm</div>
-                                            <div class="price">Đơn giá</div>
-                                            <div class="quantity">Số lượng</div>
-                                            <div class="total">Thành tiền</div>
-                                        </div>
+
+                            <div class="table_cart">
+                                <div class="table_thead">
+                                    <div class="table_top">
+                                        <div class="info_product">Thông tin sản phẩm</div>
+                                        <div class="price">Đơn giá</div>
+                                        <div class="quantity">Số lượng</div>
+                                        <div class="total">Thành tiền</div>
                                     </div>
-                                    
+                                </div>
+
+                                <?php foreach ($cart as $item) { ?>
                                     <div class="table_cart">
                                         <div class="table_thead">
                                             <div class="table_main">
                                                 <div class="container_table">
                                                     <div class="product">
                                                         <div class="image">
-                                                            <img src="./public/image/products/4.jpg" alt="">
+                                                            <img src="./public/image/products/<?php echo $item['productImage']; ?>.jpg"
+                                                                alt="">
                                                         </div>
                                                         <div class="info">
                                                             <div class="infoo">
-                                                                <div class="name">Phở cuốn</div>
-                                                                <div class="delete">xóa</div>
+                                                                <div class="name">
+                                                                    <?php echo $item['productName']; ?>
+                                                                </div>
+
+                                                                <form method="post" action="cart.php">
+                                                                    <input type="hidden" name="_method" value="delete">
+                                                                    <input type="hidden" name="productId"
+                                                                        value="<?php echo $item['productId']; ?>">
+                                                                    <button type="submit" class="delete">Xóa</button>
+
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="price_main">82.000₫</div>
-                                                    <div class="quantity_main">
-                                                        <div class="quantity_item">
-                                                            <div class="button " onclick="decrement()"><span>-</span></div>
-                                                            <input type="number" value="1" readonly id="numberInput">
-                                                            <div class="button" onclick="increment()"><span>+</span></div>
-                                                        </div>
+                                                    <div class="price_main">
+                                                        <?php echo $item['productPrice']; ?>.000₫
                                                     </div>
-                                                    <div class="price_main">82.000₫</div>
+                                                    <div class="quantity_main">
+                                                        <form class="quantityy" method="post" action="cart.php">
+                                                            <input type="hidden" name="_method" value="update">
+                                                            <div class="quantity_item">
+                                                                <div class="button " onclick="decrement()"><span>-</span>
+                                                                </div>
+                                                                <input type="number"
+                                                                    value="<?php echo $item['quantity']; ?>" readonly
+                                                                    id="numberInput" name="quantityUpdate" >
+                                                                <div class="button" onclick="increment()"><span>+</span>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <input type="hidden" name="productId" 
+                                                                value="<?php echo $item['productId']; ?>">
+                                                            <button class="update" type="submit">update</button>
+
+                                                        </form>
+                                                    </div>
+                                                    <div class="price_main">
+                                                        <?php echo $item['quantity'] * $item['productPrice']; ?>.000₫
+                                                    </div>
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="thanhtoan">
-                                    <div class="container_toan">
-                                        <div class="tongtien">
-                                            <span>Tổng tiền:</span>
-                                            <span>82.000₫</span>
-                                        </div>
-                                        <div class="buttonthanhtoan">
-                                            <button>Thanh toán</button>
-                                        </div>
+                                <?php } ?>
+                            </div>
+                            <div class="thanhtoan">
+                                <div class="container_toan">
+                                    <div class="tongtien">
+                                        <span>Tổng tiền:</span>
+                                        <span>
+                                            <?php
+                                            $totalPrice = 0;
+                                            foreach ($cart as $item) {
+                                                $totalPrice += $item['productPrice'] * $item['quantity'];
+                                            }
+                                            echo number_format($totalPrice, 3);
+                                            ?>
+                                        </span>
+                                    </div>
+                                    <div class="buttonthanhtoan">
+                                        <button>Thanh toán</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+
                         </div>
                     </div>
                     <div class="voucher">
@@ -145,12 +182,12 @@
 
     </div>
 
-    <?php include_once './view/inc/footer.php'?>
+    <?php include_once './view/inc/footer.php' ?>
 
     <!-- button scroll to top design -->
     <button id="toTop"><i class="fa-solid fa-chevron-up"></i></button>
 
-    <script src="./public/js/buy.js"></script>
+    <script src="./public/js/main.js"></script>
 </body>
 
 </html>

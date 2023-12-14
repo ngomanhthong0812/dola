@@ -15,7 +15,7 @@
 
 <body>
     <!-- header design -->
-    <?php include_once './view/inc/header.php'?>
+    <?php include_once './view/inc/header.php' ?>
 
     <div class="bodywrap">
         <section class="bread-crumb">
@@ -63,22 +63,23 @@
                                                 id="save_price">0d</span></span>
                                     </div>
                                     <form action="cart.php" method="post" class="clearfix form-group">
-                                    <input type="hidden" name="_method" value="create">
+                                        <input type="hidden" name="_method" value="create">
                                         <label class="sl section">Số lượng</label>
-                                        <div class="add remove">
-
+                                        <div class="add remove muahang">
                                             <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
                                             <input type="hidden" name="productName" value="<?php echo $product['name']; ?>">
                                             <input type="hidden" name="productImage" value="<?php echo $product['image']; ?>">
                                             <input type="hidden" name="productPrice" value="<?php echo $product['price']; ?>">
-                                            <button id="decreaseBtn" onclick="decrement()"><i
-                                                    class="fa-solid fa-minus"></i></button>
+                                            <div id="decreaseBtn" onclick="decrement()">
+                                                <i class="fa-solid fa-minus"></i>
+                                            </div>
                                             <input type="text" id="inputField" value="1" id="numberInput" name="quantity">
-                                            <button id="increaseBtn" onclick="increment()"><i
-                                                    class="fa-solid fa-plus"></i></button>
+                                            <div id="increaseBtn" onclick="increment()">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </div>
                                         </div>
                                         <div class="btn-box">
-                                                <button class="orange" type="submit">thêm vào giỏ hàng</button>
+                                            <button class="orange" type="submit">thêm vào giỏ hàng</button>
                                             <a href="dat_ban.html" class="red">đặt bàn tại đây</a>
                                         </div>
                                     </form>
@@ -207,12 +208,12 @@
         </section>
     </div>
 
-    <?php include_once './view/inc/footer.php'?>
+    <?php include_once './view/inc/footer.php' ?>
 
     <!-- button scroll to top design -->
     <button id="toTop"><i class="fa-solid fa-chevron-up"></i></button>
 
-    <script src="../public/js/buy.js"></script>
+    <script src="./public/js/main.js"></script>
 </body>
 
 </html>
