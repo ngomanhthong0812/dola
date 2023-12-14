@@ -45,7 +45,7 @@
                         <?php if ($product['id'] == $_GET['id']) { ?>
                             <div class="buy">
                                 <div class="img-product" id="product-image">
-                                    <img src="./public/image/products/<?php echo $product['image'] ?>.jpg" alt="">
+                                    <img src="./public/image/products/<?php echo $product['image']; ?>.jpg" alt="">
                                 </div>
                                 <div class="order">
                                     <h1 class="title-product" id="product-name">

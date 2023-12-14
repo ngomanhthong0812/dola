@@ -50,15 +50,15 @@ function delete_orders($orders_id)
 function insert_orders($orders)
 {
     global $pdo;
-    $sql = "INSERT INTO ORDERS(ID, CODE, STATUS, USERS_ID, PHONE, ADDRESS, DATE) VALUES(NULL, :code, :status, :users_id,  :phone, :address, :date)";
+    $sql = "INSERT INTO ORDERS(ID, CODE, STATUS, USERS_ID, ADDRESS, PHONE, DATE) VALUES(NULL, :code, :status, :users_id, :address, :phone, :date)";
     $stmt = $pdo->prepare($sql);
 
 
     $stmt->bindParam(':code', $orders['code']);
     $stmt->bindParam(':status', $orders['status']);
     $stmt->bindParam(':users_id', $orders['users_id']);
-    $stmt->bindParam(':phone', $orders['phone']);
     $stmt->bindParam(':address', $orders['address']);
+    $stmt->bindParam(':phone', $orders['phone']);
     $stmt->bindParam(':date', $orders['date']);
 
     // Lấy order_id sau khi thêm

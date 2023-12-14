@@ -10,10 +10,10 @@
 </head>
 <body>
     <div id="check_out__container" class="check_out__container">
-        <div id="form__checkout">
+        <form id="form__checkout" action="checkout.php" method="post">
             <div class="main">
                 <header class="main__header">
-                    <h1 class="shop__name"><a href="../view/_home.html">Dola Restaurant</a></h1>
+                    <h1 class="shop__name"><a href="home.php">Dola Restaurant</a></h1>
                 </header>
 
                 <article class="animate">
@@ -28,13 +28,13 @@
                             </div>
     
                             <div class="form__input">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Họ và tên">
-                                <input type="text" placeholder="Số điện thoại">
-                                <input type="text" placeholder="Địa chỉ">
-                                <input type="text" placeholder="Tỉnh thành">
-                                <input type="text" placeholder="Quận huyện">
-                                <input type="text" placeholder="Phường xã">
+                                <input type="text" name="email" placeholder="Email">
+                                <input type="text" name="name" placeholder="Họ và tên">
+                                <input type="text" name="phone" placeholder="Số điện thoại">
+                                <input type="text" name="address" placeholder="Địa chỉ">
+                                <input type="text" name="email" placeholder="Tỉnh thành">
+                                <input type="text" name="email" placeholder="Quận huyện">
+                                <input type="text" name="email" placeholder="Phường xã">
                             </div>
     
                         </section>
@@ -91,59 +91,20 @@
                 <div class="sidebar__content">
                     <div class="product">
                         <ul class="list__item">
-                            <li class="item">
-                                <div class="image__product">
-                                    <img src="./public/image/products/1.jpg" alt="product">
-                                    <span class="quantity">1</span>
-                                </div>
-                                <span class="name__product">Phở cuốn</span>
-                                <span class="price__product">164.000đ</span>
-                            </li>
-                            
-                            <li class="item">
-                                <div class="image__product">
-                                    <img src="./public/image/products/1.jpg" alt="product">
-                                    <span class="quantity">1</span>
-                                </div>
-                                <span class="name__product">Phở cuốn</span>
-                                <span class="price__product">164.000đ</span>
-                            </li> 
-
-                            <li class="item">
-                                <div class="image__product">
-                                    <img src="./public/image/products/1.jpg" alt="product">
-                                    <span class="quantity">1</span>
-                                </div>
-                                <span class="name__product">Phở cuốn</span>
-                                <span class="price__product">164.000đ</span>
-                            </li> 
-
-                            <li class="item">
-                                <div class="image__product">
-                                    <img src="./public/image/products/1.jpg" alt="product">
-                                    <span class="quantity">1</span>
-                                </div>
-                                <span class="name__product">Phở cuốn</span>
-                                <span class="price__product">164.000đ</span>
-                            </li> 
-
-                            <li class="item">
-                                <div class="image__product">
-                                    <img src="./public/image/products/1.jpg" alt="product">
-                                    <span class="quantity">1</span>
-                                </div>
-                                <span class="name__product">Phở cuốn</span>
-                                <span class="price__product">164.000đ</span>
-                            </li> 
-
-                            <li class="item">
-                                <div class="image__product">
-                                    <img src="./public/image/products/1.jpg" alt="product">
-                                    <span class="quantity">1</span>
-                                </div>
-                                <span class="name__product">Phở cuốn</span>
-                                <span class="price__product">164.000đ</span>
-                            </li> 
+                            <?php if (!empty($_SESSION['cart'])) { ?>
+                                <?php foreach ($_SESSION['cart'] as $item) { ?>
+                                    <?php if (!empty($_SESSION['cart'])) { ?>
+                                        <li class="item">
+                                            <div class="image__product">
+                                                <img src="./public/image/products/<?php echo $item['productImage']; ?>.jpg" alt="product">
+                                                <span class="quantity"><?php echo $item['quantity'] ?></span>
+                                            </div>
+                                            <span class="name__product"><?php echo $item['productName'] ?></span>
+                                            <span class="price__product"><?php echo $item['productPrice'] . ".000"; ?>đ</span>
+                                        </li>
+                                    <?php } ?>
+                                <?php } ?> 
+                            <?php } ?>                    
                         </ul>
                     </div>
 
@@ -155,18 +116,22 @@
                     <div class="sub__total">
                         <div class="provisional">
                             <span class="name">Tạm tính</span>
-                            <span class="price">0.000đ</span>
+                            <?php if (!empty($_SESSION['cart'])) { ?>
+                                <span class="price"><?php echo $item['productPrice'] . ".000";?>đ</span>
+                            <?php } ?>
                         </div>
 
                         <div class="transport__fee">
                             <span class="name">Phí vận chuyển</span>
-                            <span class="price">0.000đ</span>
+                            <span class="price">Free</span>
                         </div>
                     </div>
 
                     <div class="total">
                         <span class="name">Tổng cộng</span>
-                        <span class="price">0.000đ</span>
+                        <?php if (!empty($_SESSION['cart'])) { ?>
+                            <span class="price"><?php echo $item['productPrice'] . ".000";?>đ</span>
+                        <?php } ?>
                     </div>
 
                     <div class="action">
@@ -178,7 +143,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <script src="./public/js/main.js"></script>

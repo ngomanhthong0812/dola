@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,14 @@
     <title>Đăng ký</title>
     <link rel="stylesheet" href="./public/css/register.css">
     <link rel="shortcut icon" href="./public/image/logo/favicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <!-- header design -->
-    <?php include_once './view/inc/header.php'?>
+    <?php include_once './view/inc/header.php' ?>
 
     <div class="bodywrap">
         <section class="bread-crumb">
@@ -30,7 +34,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <form class="section" action="register.php" method="post">
             <div class="container">
                 <div class="wpx">
                     <ul class="menu-list">
@@ -41,14 +45,19 @@
                     <h1 class="title-head">Đăng ký</h1>
 
                     <div class="field">
-                        <input type="text" placeholder="Họ">
-                        <input type="text" placeholder="Tên">
-                        <input type="email" placeholder="Email">
-                        <input type="text" placeholder="Số điện thoại">
-                        <input type="password" placeholder="Mật khẩu">
+
+                        <?php if ($arr['error'] != ''):?>
+                            <div class="error">
+                                <?php echo $arr['error'] ?>
+                            </div>
+                        <?php endif; ?>
+                        <input type="text" name="name" placeholder="Tên" value="<?php echo $arr['name'] ?>">
+                        <input type="email" name="email" placeholder="Email" value="<?php echo $arr['email'] ?>">
+                        <input type="text" name="phone" placeholder="Số điện thoại" value="<?php echo $arr['phone'] ?>">
+                        <input type="password" name="password" placeholder="Mật khẩu" value="<?php echo $arr['password'] ?>">
                     </div>
 
-                    <button type="submit">Đăng ký</button>
+                    <button>Đăng ký</button>
 
                     <!-- <a href="#">Quên mật khẩu</a> -->
 
@@ -56,18 +65,19 @@
                         <p>Hoặc đăng nhập bằng</p>
                         <div class="img-login">
                             <a href="#"><img src="./public/image/icon/fb-btn.svg" alt=""></a>
-                            <a href="#"><img src="./public/image/icon/gp-btn.svg" alt=""></a>  
+                            <a href="#"><img src="./public/image/icon/gp-btn.svg" alt=""></a>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-        </section>
+        </form>
     </div>
 
-    <?php include_once './view/inc/footer.php'?>
+    <?php include_once './view/inc/footer.php' ?>
 
     <script src="./public/js/main.js"></script>
 
 </body>
+
 </html>

@@ -580,3 +580,9 @@ body {
     width: 57px;
     height: 35px;
 }
+
+.error{
+    line-height: 0;
+    color: red;
+    font-size: 13px;
+}
