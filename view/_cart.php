@@ -86,19 +86,15 @@
                                                         <form class="quantityy" method="post" action="cart.php">
                                                             <input type="hidden" name="_method" value="update">
                                                             <div class="quantity_item">
-                                                                <div class="button " onclick="decrement()"><span>-</span>
-                                                                </div>
                                                                 <input type="number"
-                                                                    value="<?php echo $item['quantity']; ?>" readonly
-                                                                    id="numberInput" name="quantityUpdate" >
-                                                                <div class="button" onclick="increment()"><span>+</span>
-                                                                </div>
+                                                                    value="<?php echo $item['quantity']; ?>" 
+                                                                    name="quantityUpdate" >
+                                                                    <button class="update" type="submit">update</button>
                                                             </div>
 
 
                                                             <input type="hidden" name="productId" 
                                                                 value="<?php echo $item['productId']; ?>">
-                                                            <button class="update" type="submit">update</button>
 
                                                         </form>
                                                     </div>
