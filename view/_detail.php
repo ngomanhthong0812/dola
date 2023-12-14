@@ -70,13 +70,9 @@
                                             <input type="hidden" name="productName" value="<?php echo $product['name']; ?>">
                                             <input type="hidden" name="productImage" value="<?php echo $product['image']; ?>">
                                             <input type="hidden" name="productPrice" value="<?php echo $product['price']; ?>">
-                                            <div id="decreaseBtn" onclick="decrement()">
-                                                <i class="fa-solid fa-minus"></i>
-                                            </div>
-                                            <input type="text" id="inputField" value="1" id="numberInput" name="quantity">
-                                            <div id="increaseBtn" onclick="increment()">
-                                                <i class="fa-solid fa-plus"></i>
-                                            </div>
+                                           
+                                            <input type="number" style="width: 60px; font-size: 15px; margin: 0px" value="1" name="quantity">
+                                           
                                         </div>
                                         <div class="btn-box">
                                             <button class="orange" type="submit">thêm vào giỏ hàng</button>
