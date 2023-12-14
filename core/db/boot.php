@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-define('BASE_URL', 'http://localhost/ShopClaue_PHP');
+define('BASE_URL', 'http://localhost/dola');
 
 // require_once 'auth.php';
 require_once 'db_products.php';
