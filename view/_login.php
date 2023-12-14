@@ -31,7 +31,7 @@
         </section>
 
         <section class="section">
-            <div class="container">
+            <form action="login.php" method="post" class="container">
                 <div class="wpx">
                     <ul class="menu-list">
                         <li class="login"><a href="#">Đăng nhập</a></li>
@@ -39,10 +39,12 @@
                     </ul>
 
                     <h1 class="title-head">Đăng nhập</h1>
-
+                    <?php if (isset($error_message) && !empty($error_message)): ?>
+                    <div class="mess">Sai email hoặc mật khẩu !</div>
+                    <?php endif; ?>
                     <div class="field">
-                        <input type="email" placeholder="Email">
-                        <input type="password" placeholder="Mật khẩu">
+                        <input type="email" placeholder="Email" name="email">
+                        <input type="password" placeholder="Mật khẩu" name="password">
                     </div>
 
                     <button type="submit">Đăng nhập</button>
@@ -58,7 +60,7 @@
                     </div>
                     
                 </div>
-            </div>
+            </form>
         </section>
     </div>
 
