@@ -91,8 +91,6 @@
                                                                     name="quantityUpdate" >
                                                                     <button class="update" type="submit">update</button>
                                                             </div>
-
-
                                                             <input type="hidden" name="productId" 
                                                                 value="<?php echo $item['productId']; ?>">
 
