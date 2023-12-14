@@ -41,7 +41,7 @@
                                         <?php echo $_SESSION['email'] ?>
                                     </li>
                                 </a>
-                                <a href="admin/statistics/index.php">
+                                <a href="admin/index.php">
                                     <li>Quản Lý</li>
                                 </a>
                                 <a href="logout.php">
