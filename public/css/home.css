@@ -1109,7 +1109,7 @@ body {
     width: 100%;
     height: 400px;
     position: relative;
-    background: url(image/background/background_danhgia.jpg) center / cover no-repeat;
+    background: url(../image/background/background_danhgia.jpg) center / cover no-repeat;
     padding: 0 40px;
 }
 

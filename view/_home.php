@@ -1,5 +1,6 @@
     <!DOCTYPE html>
     <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,10 @@
         <link rel="shortcut icon" href="./public/image/logo/favicon.webp" type="image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
+
     <body>
         <!-- header design -->
-    <?php include_once './view/inc/header.php'?>
+        <?php include_once './view/inc/header.php' ?>
 
         <!-- section slide design -->
         <section class="slide" id="slide">
@@ -113,23 +115,23 @@
                 </ul>
 
                 <div class="card-box">
-                    <?php for ($i=0; $i < 10; $i++) {  ?>
+                    <?php for ($i = 0; $i < 10; $i++) {  ?>
                         <div class="item">
-                        <a href="#">
-                        <img src="./public/image/products/<?php echo $productList[$i]['image']?>.jpg" alt=""> 
-                        </a>
-                        <div class="product-info">
-                            <a href="#" class="product-name"><?php echo $productList[$i]['name']?></a>
-                            <div class="price-box">
-                                <span class="price"><?php echo $productList[$i]['price']?>.000đ</span>
-                                <span class="compare-price"><?php echo $productList[$i]['price'] + 50?>.000đ</span>
+                            <a href="#">
+                                <img src="./public/image/products/<?php echo $productList[$i]['image'] ?>.jpg" alt="">
+                            </a>
+                            <div class="product-info">
+                                <a href="#" class="product-name"><?php echo $productList[$i]['name'] ?></a>
+                                <div class="price-box">
+                                    <span class="price"><?php echo $productList[$i]['price'] ?>.000đ</span>
+                                    <span class="compare-price"><?php echo $productList[$i]['price'] + 50 ?>.000đ</span>
+                                </div>
+                            </div>
+                            <div class="btn-card">
+                                <a href="detail.php?id=<?php echo $productList[$i]['id']; ?>" class="btn-more" data-product-id="1">Xem chi tiết</a>
                             </div>
                         </div>
-                        <div class="btn-card">
-                            <a href="detail.php?id=<?php echo $productList[$i]['id']; ?>" class="btn-more" data-product-id="1">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <?php  } ?>         
+                    <?php  } ?>
                 </div>
             </div>
         </section>
@@ -141,24 +143,24 @@
                     <h2><a href="#">Món ăn nổi bật</a></h2>
                 </div>
                 <div class="wrapper">
-                <?php for ($i=5; $i < 10; $i++) {  ?>
-                    <div class="items">
-                        <a href="#">
-                        <img src="./public/image/products/<?php echo $productList[$i]['image']?>.jpg" alt=""> 
-                        </a>
-                        <div class="product-info">
-                            <a href="#" class="product-name"><?php echo $productList[$i]['name']?></a>
-                            <div class="price-box">
-                                <span class="price"><?php echo $productList[$i]['price']?>.000đ</span>
-                                <span class="compare-price"><?php echo $productList[$i]['price'] + 30?>.000đ</span>
+                    <?php for ($i = 5; $i < 10; $i++) {  ?>
+                        <div class="items">
+                            <a href="#">
+                                <img src="./public/image/products/<?php echo $productList[$i]['image'] ?>.jpg" alt="">
+                            </a>
+                            <div class="product-info">
+                                <a href="#" class="product-name"><?php echo $productList[$i]['name'] ?></a>
+                                <div class="price-box">
+                                    <span class="price"><?php echo $productList[$i]['price'] ?>.000đ</span>
+                                    <span class="compare-price"><?php echo $productList[$i]['price'] + 30 ?>.000đ</span>
+                                </div>
+                            </div>
+                            <div class="btn-card">
+                                <a href="detail.php?id=<?php echo $productList[$i]['id']; ?>" class="btn-more" data-product-id="1">Xem chi tiết</a>
                             </div>
                         </div>
-                        <div class="btn-card">
-                            <a href="detail.php?id=<?php echo $productList[$i]['id']; ?>" class="btn-more" data-product-id="1">Xem chi tiết</a>
-                        </div>
-                    </div>
-                    <?php  } ?>         
-                
+                    <?php  } ?>
+
                 </div>
             </div>
         </section>
@@ -173,7 +175,7 @@
                             <span class="title1">Dola Restaurant</span>
                             <span class="title2">Món ăn đa dạng</span>
                         </a>
-                        
+
                     </div>
                 </div>
 
@@ -207,7 +209,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
 
         <!-- section num design -->
@@ -216,8 +218,8 @@
                 <div class="item">
                     <img src="./public/image/icon/thong_ke1.jpg" alt="">
                     <div class="content">
-                        <span class="num">                   
-                            <span class="counter">8+</span>                  
+                        <span class="num">
+                            <span class="counter">8+</span>
                         </span>
                         <span class="title">Cửa hàng</span>
                     </div>
@@ -226,8 +228,8 @@
                 <div class="item">
                     <img src="./public/image/icon/thong_ke2.jpg" alt="">
                     <div class="content">
-                        <span class="num">                   
-                            <span class="counter">200+</span>                  
+                        <span class="num">
+                            <span class="counter">200+</span>
                         </span>
                         <span class="title">Nhân viên</span>
                     </div>
@@ -236,8 +238,8 @@
                 <div class="item">
                     <img src="./public/image/icon/thong_ke3.jpg" alt="">
                     <div class="content">
-                        <span class="num">                   
-                            <span class="counter">5000+</span>                  
+                        <span class="num">
+                            <span class="counter">5000+</span>
                         </span>
                         <span class="title">Khách hàng</span>
                     </div>
@@ -246,13 +248,13 @@
                 <div class="item">
                     <img src="./public/image/icon/thong_ke4.jpg" alt="">
                     <div class="content">
-                        <span class="num">                   
-                            <span class="counter">50+</span>                  
+                        <span class="num">
+                            <span class="counter">50+</span>
                         </span>
                         <span class="title">Món ăn</span>
                     </div>
                 </div>
-            </div> 
+            </div>
         </section>
 
         <!-- section blog design -->
@@ -268,7 +270,7 @@
                             <div class="time-post">6/01/2023</div>
                             <a href="#" class="thumb"><img src="./public/image/background/canh-ca-nau-me-2-7edb.jpg" alt=""></a>
                         </div>
-                        
+
                         <div class="block-content">
                             <div class="time-post">
                                 <span>Đăng bởi: Admin Dola</span>
@@ -283,7 +285,7 @@
                         </div>
                     </div>
 
-                    <div class="item-blog">                   
+                    <div class="item-blog">
                         <div class="block-content">
                             <div class="time-post">
                                 <span>Đăng bởi: Admin Dola</span>
@@ -307,7 +309,7 @@
                             <div class="time-post">6/01/2023</div>
                             <a href="#" class="thumb"><img src="./public/image/background/kheo-leo-co-meo-nau-an-de-co-bua.jpg" alt=""></a>
                         </div>
-                        
+
                         <div class="block-content">
                             <div class="time-post">
                                 <span>Đăng bởi: Admin Dola</span>
@@ -343,7 +345,7 @@
                             <p>Món ăn ở đây hầu hết đều rất ngon, khẩu vị phù hợp với tôi, tôi sẽ luôn ủng hộ nhà hàng Dola Restaurant</p>
                         </div>
                     </div>
-                    
+
                 </div>
                 <div class="btn-review">
                     <button class="btn-item"></button>
@@ -353,11 +355,12 @@
             </div>
         </section>
 
-        <?php include_once './view/inc/footer.php'?>
+        <?php include_once './view/inc/footer.php' ?>
 
         <!-- button scroll to top design -->
         <button id="toTop"><i class="fa-solid fa-chevron-up"></i></button>
 
-        <script src="home.js"></script>
+        <script src="public/js/main.js"></script>
     </body>
+
     </html>
