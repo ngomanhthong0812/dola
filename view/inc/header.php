@@ -23,10 +23,10 @@
                             </a>
                             <div class="header-content">
                                 <p>tìm kiếm món ăn của bạn</p>
-                                <div class="input">
-                                    <input type="text" class="my-input" placeholder="Nhập tên món ăn...">
-                                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                                </div>
+                                <form action="search.php" method="get" class="input">
+                                    <input type="text" class="my-input" name="search" placeholder="Nhập tên món ăn...">
+                                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </form>
                             </div>
                         </li>
                         <li><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>

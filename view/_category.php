@@ -71,25 +71,25 @@
                 </div>
                 <div class="product">
                     <div class="swiper-wrapper">
+                    <?php for ($i=0; $i < 10; $i++) {  ?>
                         <div class="swiper-slide">
                             <a href="#">
-                                <img src="./public/image/products/1.jpg" alt=""> 
+                            <img src="./public/image/products/<?php echo $productList[$i]['image']?>.jpg" alt=""> 
                              </a>
                              <div class="product-info">
-                                 <a href="#" class="product-name">Salad rau mùa sốt cam</a>
+                             <a href="#" class="product-name"><?php echo $productList[$i]['name']?></a>
                                  <div class="price-box">
-                                     <span class="price">68.000đ</span>
-                                     <!-- <span class="compare-price">70.000đ</span> -->
+                                 <span class="price"><?php echo $productList[$i]['price']?>.000đ</span>
+                                <span class="compare-price"><?php echo $productList[$i]['price'] + 50?>.000đ</span>
                                  </div>
                              </div>
                              <div class="btn-card">
-                                 <a href="#" class="btn-more">Xem chi tiết</a>
+                             <a href="detail.php?id=<?php echo $productList[$i]['id']; ?>" class="btn-more" data-product-id="1">Xem chi tiết</a>
                              </div>
                         </div>
-                    </div>
+                        <?php  } ?> 
+                    </div>  
                 </div>
-                <div class="show_all"><button>Xem thêm</button></div>
-            </div>
         </section>
     </div>
 

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "phone" => $_POST["phone"],
         'date' => date('Y-m-d H:i:s'),
     );
-    insert_orders($createOrder);
+    insert_order($createOrder);
 
     header('Location: index.php');
 }

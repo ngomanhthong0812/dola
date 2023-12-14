@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Products - SB Admin</title>
-    <link rel="shortcut icon" href="../../public/media/img/desktop2.png" type="">
+    <title>Dashboard - SB Admin</title>
+    <link rel="shortcut icon" href="../../public/img/logo/123.png" type="image/x-icon">
     <link href="../../public/admin/css/style.css" rel="stylesheet" />
     <script src="../../public/admin/js/all.js" crossorigin="anonymous"></script>
 </head>
@@ -20,9 +20,9 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Products</h1>
+                    <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Products</li>
+                        <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                     <div class="card mb-4">
                         <div class="card-header">
@@ -60,10 +60,10 @@
                                     <?php foreach ($product_list as $product) { ?>
                                         <tr>
                                             <td><?php echo ++$index; ?></td>
-                                            <td><img src="../../public/media/img/<?php echo $product['image']; ?>.jpg" width="60" height="60"></td>
+                                            <td><img src="../../public/image/products/<?php echo $product['image']; ?>.jpg" width="60" height="60"></td>
                                             <td><?php echo $product['name']; ?></td> 
                                             <td><?php echo $product['description']; ?></td>
-                                            <td>$<?php echo $product['price']; ?>.000</td>
+                                            <td><?php echo $product['price']; ?></td>
                                             <td><?php echo $product['quantity']; ?></td>
                                             <td>
                                                 <a class="btn btn-primary" href="edit.php?product_id=<?php echo $product['id']; ?>">Edit</a>
