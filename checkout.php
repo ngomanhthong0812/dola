@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $cart = $_SESSION['cart'];
             for ($i = 0; $i < count($cart); $i++) {
                 $orderItems = array(
-                    "order_id" => $orderId,
-                    "product_id" => $cart[$i]['productId'],
+                    "orders_id" => $orderId,
+                    "products_id" => $cart[$i]['productId'],
                     "quantity" => $cart[$i]['quantity'],
                     "price" => $cart[$i]['productPrice'] *  $cart[$i]['quantity'],
                 );

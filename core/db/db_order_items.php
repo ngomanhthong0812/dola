@@ -46,12 +46,12 @@ function delete_order_items($order_items_id){
 
 function insert_order_items($order_items){
     global $pdo;
-    $sql = "INSERT INTO ORDER_ITEMS(ID, ORDER_ID, PRODUCT_ID, QUANTITY , PRICE) VALUES(NULL, :order_id, :product_id, :quantity, :price)";
+    $sql = "INSERT INTO ORDER_ITEMS(ID, ORDERS_ID, PRODUCTS_ID, QUANTITY , PRICE) VALUES(NULL, :orders_id, :products_id, :quantity, :price)";
     $stmt = $pdo->prepare($sql);
     
    
-    $stmt->bindParam(':order_id', $order_items['order_id']);
-    $stmt->bindParam(':product_id', $order_items['product_id']);
+    $stmt->bindParam(':orders_id', $order_items['orders_id']);
+    $stmt->bindParam(':products_id', $order_items['products_id']);
     $stmt->bindParam(':quantity', $order_items['quantity']);
     $stmt->bindParam(':price', $order_items['price']);
     
