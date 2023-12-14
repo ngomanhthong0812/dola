@@ -34,10 +34,15 @@
                         <a href="#">
                             <i class="fa-solid fa-user"></i>
                         </a>
-                        <?php if (isset($_SESSION['email']) && $_SESSION['email'] != "") { ?>
+                        <?php if (isset($_SESSION['email']) && $_SESSION['email'] != "" && $_SESSION['role'] == "admin") { ?>
                             <ul class="nav-second">
                                 <a href="#">
-                                    <li><?php echo $_SESSION['email'] ?></li>
+                                    <li>
+                                        <?php echo $_SESSION['email'] ?>
+                                    </li>
+                                </a>
+                                <a href="./admin/statistics/index.php">
+                                    <li>Quản Lý</li>
                                 </a>
                                 <a href="logout.php">
                                     <li>Đăng xuất</li>
@@ -46,18 +51,32 @@
                                     <li>Món ăn yêu thích</li>
                                 </a>
                             </ul>
+                        <?php } else if (isset($_SESSION['email']) && $_SESSION['email'] != "" && $_SESSION['role'] == "user") { ?>
+                                <ul class="nav-second">
+                                    <a href="#">
+                                        <li>
+                                        <?php echo $_SESSION['email'] ?>
+                                        </li>
+                                    </a>
+                                    <a href="logout.php">
+                                        <li>Đăng xuất</li>
+                                    </a>
+                                    <a href="#">
+                                        <li>Món ăn yêu thích</li>
+                                    </a>
+                                </ul>
                         <?php } else { ?>
-                            <ul class="nav-second">
-                                <a href="login.php">
-                                    <li>Đăng nhập</li>
-                                </a>
-                                <a href="register.php">
-                                    <li>Đăng ký</li>
-                                </a>
-                                <a href="#">
-                                    <li>Món ăn yêu thích</li>
-                                </a>
-                            </ul>
+                                <ul class="nav-second">
+                                    <a href="login.php">
+                                        <li>Đăng nhập</li>
+                                    </a>
+                                    <a href="register.php">
+                                        <li>Đăng ký</li>
+                                    </a>
+                                    <a href="#">
+                                        <li>Món ăn yêu thích</li>
+                                    </a>
+                                </ul>
                         <?php } ?>
                     </li>
                     <li><a href="#"><i class="fa-solid fa-location-dot"></i></a></li>

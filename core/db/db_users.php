@@ -1,35 +1,40 @@
-<?php 
+<?php
 require_once 'mysql.php';
 $pdo = get_pdo();
-function get_all_users(){
+
+function get_all_users()
+{
     global $pdo;
 
     $sql = "SELECT * FROM USERS";
     $stmt = $pdo->prepare($sql);
 
     $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-     
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
     // Lấy danh sách kết quả
     $result = $stmt->fetchAll();
-     
-    $users_list = array();
+    $userList = array();
 
-    // Lặp kết quả
-    foreach ($result as $row){
-        $users= array(
-            'id' => $row['id'],
-            'email' => $row['email'],
-            'password' => $row['password'],
-            'role' => $row['role']
-        );
-        array_push($users_list, $users);
+    if (count($result) > 0) {
+        foreach ($result as $row) {
+            $user = array(
+                "id" => $row['id'],
+                "name" => $row['name'],
+                "phone" => $row['phone'],
+                "email" => $row['email'],
+                "password" => $row['password'],
+                "role" => $row['role'],
+            );
+            array_push($userList, $user);
+        }
     }
-    
-    return $users_list;
+    return $userList;
+
 }
 
-function delete_users($users_id){
+function delete_users($users_id)
+{
     global $pdo;
 
     $sql = "DELETE FROM USERS WHERE ID=:id";
@@ -40,33 +45,37 @@ function delete_users($users_id){
 
 }
 
-function insert_users($users){
+function insert_users($users)
+{
     global $pdo;
-    $sql = "INSERT INTO USERS(ID, EMAIL, PASSWORD, ROLE) VALUES(NULL, :email, :password, :role)";
+    $sql = "INSERT INTO USERS(ID,NAME, PHONE, EMAIL, PASSWORD, ROLE) VALUES(NULL, :name, :phone, :email, :password, :role)";
     $stmt = $pdo->prepare($sql);
-    
-   
+
+
+    $stmt->bindParam(':name', $users['name']);
+    $stmt->bindParam(':phone', $users['phone']);
     $stmt->bindParam(':email', $users['email']);
     $stmt->bindParam(':password', $users['password']);
-    $stmt->bindParam(':role', $users['role']);    
+    $stmt->bindParam(':role', $users['role']);
     $stmt->execute();
 }
-function get_users($users){
+function get_users($users)
+{
     global $pdo;
 
     $sql = "SELECT * FROM USERS WHERE ID=:id";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':id', $users);
-    
+
 
     $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-     
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
     // Lấy danh sách kết quả
     $result = $stmt->fetchAll();
 
     // Lặp kết quả
-    foreach ($result as $row){
+    foreach ($result as $row) {
         return array(
             'id' => $row['id'],
             'email' => $row['email'],
@@ -78,7 +87,8 @@ function get_users($users){
     return null;
 }
 
-function update_users($users){
+function update_users($users)
+{
     global $pdo;
     $sql = "UPDATE USERS SET EMAIL=:email, PASSWORD=:password,ROLE=:role WHERE ID=:id";
     $stmt = $pdo->prepare($sql);
@@ -87,25 +97,26 @@ function update_users($users){
     $stmt->bindParam(':email', $users['email']);
     $stmt->bindParam(':password', $users['password']);
     $stmt->bindParam(':role', $users['role']);
-    
+
     $stmt->execute();
 }
-function get_by_email_users($email){
+function get_by_email_users($email)
+{
     global $pdo;
 
     $sql = "SELECT * FROM USERS WHERE EMAIL=:email";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':email', $email);
-    
+
 
     $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-     
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
     // Lấy danh sách kết quả
     $result = $stmt->fetchAll();
 
     // Lặp kết quả
-    foreach ($result as $row){
+    foreach ($result as $row) {
         return array(
             'id' => $row['id'],
             'email' => $row['email'],
@@ -116,7 +127,8 @@ function get_by_email_users($email){
 
     return null;
 }
-function get_all_users_customers(){
+function get_all_users_customers()
+{
     global $pdo;
 
     $sql = "SELECT COUNT(id) as user
@@ -125,48 +137,21 @@ function get_all_users_customers(){
     $stmt = $pdo->prepare($sql);
 
     $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-     
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
     // Lấy danh sách kết quả
     $result = $stmt->fetchAll();
-     
+
     $users_list = array();
 
     // Lặp kết quả
-    foreach ($result as $row){
-        $users= array(
+    foreach ($result as $row) {
+        $users = array(
             'user' => $row['user']
         );
         array_push($users_list, $users);
     }
-    
+
     return $users_list;
-}
-
-function get_user_by_email($email){
-    global $pdo;
-
-    $sql = "SELECT * FROM USERS WHERE EMAIL=:email";
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':email', $email);
-    
-
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-     
-    // Lấy danh sách kết quả
-    $result = $stmt->fetchAll();
-
-    // Lặp kết quả
-    foreach ($result as $row){
-        return array(
-            'id' => $row['id'],
-            'email' => $row['email'],
-            'password' => $row['password'],
-            'role' => $row['role']
-        );
-    }
-
-    return null;
 }
 ?>
