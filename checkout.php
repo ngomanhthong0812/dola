@@ -8,13 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user) {
             $id = $user['id'];
             $orders = array(
-                'code' => string_random(10),
+                'code' => string_random(5),
                 'status' => 'pending',
                 'users_id' => $id,
                 'address' => $_POST['address'],
                 'phone' => $_POST['phone'],
                 'date' => date('Y-m-d H:i:s'), 
             );
+            $_SESSION['order'] = $orders['code'];
             insert_orders($orders);
 
             $orderId = get_last_inserted_order_id();
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 insert_order_items($orderItems);
             }
             unset($_SESSION['cart']);
-            header('location: home.php');
+            header('location: order.php');
         }else{
             header('location: login.php');
         }
@@ -42,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 function string_random($len = 10){
-    $keys = array_merge(range(0,9), range('a', 'z'));
+    $keys = array_merge(range(0,9), range('0', '9'));
 
     $key = "";
     for($i=0; $i < $len; $i++) {
