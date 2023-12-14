@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="check_out__container" class="check_out__container">
-        <div id="form__checkout">
+        <form id="form__checkout" action="checkout.php" method="post">
             <div class="main">
                 <header class="main__header">
                     <h1 class="shop__name"><a href="../view/_home.html">Dola Restaurant</a></h1>
@@ -28,13 +28,13 @@
                             </div>
     
                             <div class="form__input">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Họ và tên">
-                                <input type="text" placeholder="Số điện thoại">
-                                <input type="text" placeholder="Địa chỉ">
-                                <input type="text" placeholder="Tỉnh thành">
-                                <input type="text" placeholder="Quận huyện">
-                                <input type="text" placeholder="Phường xã">
+                                <input type="text" name="email" placeholder="Email">
+                                <input type="text" name="name" placeholder="Họ và tên">
+                                <input type="text" name="phone" placeholder="Số điện thoại">
+                                <input type="text" name="address" placeholder="Địa chỉ">
+                                <input type="text" name="email" placeholder="Tỉnh thành">
+                                <input type="text" name="email" placeholder="Quận huyện">
+                                <input type="text" name="email" placeholder="Phường xã">
                             </div>
     
                         </section>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <script src="./public/js/main.js"></script>

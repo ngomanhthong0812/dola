@@ -142,4 +142,31 @@ function get_all_users_customers(){
     
     return $users_list;
 }
+
+function get_user_by_email($email){
+    global $pdo;
+
+    $sql = "SELECT * FROM USERS WHERE EMAIL=:email";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':email', $email);
+    
+
+    $stmt->execute();
+    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+     
+    // Lấy danh sách kết quả
+    $result = $stmt->fetchAll();
+
+    // Lặp kết quả
+    foreach ($result as $row){
+        return array(
+            'id' => $row['id'],
+            'email' => $row['email'],
+            'password' => $row['password'],
+            'role' => $row['role']
+        );
+    }
+
+    return null;
+}
 ?>

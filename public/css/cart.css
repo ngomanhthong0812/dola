@@ -458,6 +458,11 @@ body {
     line-height: 40px;
     border: 1px solid #d69c52;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.buttonthanhtoan button a {
+    color: #fff;
 }
 
 .voucher{

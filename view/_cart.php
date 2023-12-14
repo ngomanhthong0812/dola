@@ -127,7 +127,7 @@
                                         </span>
                                     </div>
                                     <div class="buttonthanhtoan">
-                                        <button>Thanh toán</button>
+                                        <button><a href="checkout.php">Thanh toán</a></button>
                                     </div>
                                 </div>
                             </div>
